@@ -54,8 +54,6 @@ xhr.onload = jsonRequestOk;
     boeken.data = resultaat;
     //voer uit(object.functie)
     boeken.uitvoeren();
-
-
     }
 
 
@@ -73,18 +71,20 @@ const boeken = {
    this.data.forEach( boek => {
 
     //wanneer een voortitel beschikbaar is, dan moet deze vóór de titel worden geplaatst
-    let titel = "";
+    let compleetTitel = "";
     if ( boek.voorTitel ){
-     titel += boek.voorTitel + " ";
+     compleetTitel += boek.voorTitel + " ";
     }
-    titel += boek.titel;
-
+    compleetTitel += boek.titel;
+    let compleetAfbeelding ="";
+    compleetAfbeelding += boek.cover;
 
     //boek houd al de waarde vast van resultaat__Leesbaar[i]
     //alles binnen de variabele 'html', komt terecht in document.getElementById('boeken');
-    html += `<article>
-              ${titel} 
-             </article>`   
+    html += `<section class="boek">`;
+      html += `<img class="boek__cover" src="${compleetAfbeelding}" alt="${compleetTitel}">`;
+      html += `<article>${compleetTitel} </article>`;   
+    html += `</section>`;
    });
    uitvoer.innerHTML = html;
 

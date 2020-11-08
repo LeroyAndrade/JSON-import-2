@@ -1,11 +1,14 @@
 body {
-  background-color: green;
+ background-color: green;
+ font-family: Arial, Helvetica, sans-serif;
 }
 
-
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: green;
-  }
-
+.boek{ 
+ padding: 1em;
+ clear: left;
+}.boek__cover{
+ float:left;
+ padding-right: 3rem;
+ max-width: 300px;
+ object-fit: contain;
 }
