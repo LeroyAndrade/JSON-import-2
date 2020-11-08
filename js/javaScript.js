@@ -12,7 +12,7 @@ const xhr = new XMLHttpRequest;
 4	DONE	The operation is complete. -> done
 */
 
-
+ 
                                          //false = asynchronous dus wachten todat item is geladen, true = synchronous en mag de rest van de webpagina laden
  //ik kies voor true, omdat de json vanuit JS al wordt geladen nadat de HTML is ingeladen, effect heeft asynchronous het niet want JS laad vanuit de footer
 
