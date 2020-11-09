@@ -1,38 +1,39 @@
+*{
+ margin: 0;
+}
+
 body {
- background-color: green;
  font-family: Arial, Helvetica, sans-serif;
 }
 
 .boek{ 
  display: flex;
- flex-grow: 1;
  flex-flow: column wrap;
  width: 750px;
  height: 380px;
- border:1px solid;
- order: 0;
- 
+ padding: 3em;
 } .boek__cover{
  padding-right: 3rem;
  width: 350px;
  object-fit: cover;
 }
 
-.boek__boekInformatieTotaal{
- /*
- padding-right: 3rem;
- border: 1px solid;
- */
- max-width: 300px;
+.boek__kopje{
+  font-size: 1.5em;
+  margin-top: 0;
+  color: green;
 
 }
-/*
-.boek{ 
- padding: 1em;
- clear: left;
-}.boek__cover{
- float:left;
- padding-right: 3rem;
+.boek__paginas::after, .boek__uitgave::after, .boek__ean::after{ 
+ content: " | ";
+} 
+
+.boek__prijs{
+ font-size: 1.5em;
+ color:green;
+}
+
+.boek__boekInformatieTotaal{
  max-width: 300px;
- obje
- */
+}
+
