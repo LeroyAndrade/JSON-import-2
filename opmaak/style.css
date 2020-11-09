@@ -6,26 +6,25 @@ body {
 .boek{ 
  display: flex;
  flex-grow: 1;
- flex-flow: wrap column;
- border: 1px solid red;
- width: 500px;
- height: 200px;
+ flex-flow: column wrap;
+ width: 750px;
+ height: 380px;
+ border:1px solid;
+ order: 0;
  
 } .boek__cover{
- /*
  padding-right: 3rem;
- border: 1px solid;
- */
- max-width: 300px;
- order: 0;
+ width: 350px;
+ object-fit: cover;
 }
+
 .boek__boekInformatieTotaal{
  /*
  padding-right: 3rem;
  border: 1px solid;
  */
  max-width: 300px;
- order: 1;
+
 }
 /*
 .boek{ 
