@@ -81,10 +81,14 @@ const boeken = {
      let auteurs = "";
 
      //schrijver voornaam en achternaam
-    boek.auteurs.forEach(schrijver =>{
+    boek.auteurs.forEach(( schrijver, index ) =>{
      let tussenvoegsel = schrijver.tussenvoegsel ? schrijver.tussenvoegsel + " " : "";
-        let seperator = " ";
-          auteurs+= schrijver.voornaam + " " + tussenvoegsel + schrijver.achternaam + seperator;
+        let spatie = ", ";
+
+        if( index >= boek.auteurs.length-2 ) { spatie = " en "; }
+        if( index >= boek.auteurs.length-1 ) { spatie = ""; }
+        
+          auteurs+= schrijver.voornaam + " " + tussenvoegsel + schrijver.achternaam + spatie;
     });
 
     //Boek cover
