@@ -10,6 +10,7 @@
          }
      ],
      "uitgave": "2020-10",
+     "bindwijze": "Paperback",
      "paginas": 1400,
      "taal": "Nederlands",
      "ean": 9789492183989,
@@ -17,7 +18,7 @@
   },
   {
    "titel": "The Alchemist",
-   "cover": "https://media.s-bol.com/qP80RBAq6rR/127x210.jpg",
+   "cover": "https://media.s-bol.com/qP80RBAq6rR/508x840.jpg",
    "auteurs": [
        {
            "voornaam": "Paulo",
@@ -25,6 +26,7 @@
        }
    ],
   "uitgave": "2006-10",
+  "bindwijze": "Paperback",
   "paginas": 192,
   "taal": "Engels",
   "ean": 9780061233845,
@@ -57,6 +59,7 @@
          }
      ],
      "uitgave": "2017-8",
+     "bindwijze": "E-book",
      "paginas": 149,
      "taal": "Nederlands",
      "ean": 9789057678257,
@@ -85,6 +88,7 @@
         }
     ],
     "uitgave": "2018-07",
+    "bindwijze": "Paperback",
     "ean": 9780655315254,
     "paginas": 274,
     "taal": "Engels",
@@ -114,6 +118,7 @@
         }
     ],
     "uitgave": "2013-09",
+    "bindwijze": "Paperback",
     "ean": 9789063693275,
     "paginas": 176,
     "taal": "Engels",
@@ -127,6 +132,7 @@
         "achternaam": "French"
     }],
     "uitgave": "2019-07",
+    "bindwijze": "E-book",
     "ean": 9789026343315,
     "paginas": 400,
     "taal": "Nederlands",
@@ -145,6 +151,7 @@
     }
  ],
     "uitgave": "2016-06",
+    "bindwijze": "Paperback",
     "paginas": 300,
     "taal": "Engels",
     "ean": 9780134433943,
@@ -160,6 +167,7 @@
         }
     ],
     "uitgave": "2018-06",
+    "bindwijze": "E-book",
     "paginas": 231,
     "taal": "Nederlands",
     "ean": 9789492899019,
@@ -175,6 +183,7 @@
         }
     ],
     "uitgave": "2016-01",
+    "bindwijze": "E-book",
     "paginas": 246,
     "taal": "Engels",
     "ean": 9781785881008,
@@ -190,6 +199,7 @@
         }
     ],
     "uitgave": "2019-08",
+    "bindwijze": "E-book",
     "paginas": 312,
     "taal": "Nederlands",
     "ean": 9789021573397,
@@ -205,6 +215,7 @@
         }
     ],
     "uitgave": "2019-08",
+    "bindwijze": "E-book",
     "paginas": 304,
     "taal": "Nederlands",
     "ean": 9789056725723,
@@ -220,6 +231,7 @@
         "achternaam": "Delft"
     }],
     "uitgave": "2019-06",
+    "bindwijze": "E-book",
     "paginas": 400,
     "taal": "Nederlands",
     "ean": 9789401459075,
@@ -235,6 +247,7 @@
         }
     ],
     "uitgave": "2019-05",
+    "bindwijze": "E-book",
     "paginas": 597,
     "taal": "Nederlands",
        "ean": 9789041422903,
@@ -248,6 +261,7 @@
         "achternaam": "Sunim"
     }],
     "uitgave": "2019-01",
+    "bindwijze": "E-book",
     "paginas": 272,
     "taal": "Nederlands",
     "ean": 9789022583722,
@@ -262,6 +276,7 @@
         "achternaam": "Riley"
     }],
     "uitgave": "2018-06",
+    "bindwijze": "E-book",
     "paginas": 592,
     "taal": "Nederlands",
     "ean": 9789401609371,
@@ -285,6 +300,7 @@
         }
      ],
     "uitgave": "2018-10",
+    "bindwijze": "E-book",
     "paginas": 478,
     "taal": "Engels",
     "ean": 9781788622882,
@@ -299,6 +315,7 @@
      "achternaam": "French"
  }],
     "uitgave": "2018-4",
+    "bindwijze": "E-book",
     "paginas": 365,
     "taal": "Nederlands",
     "ean": 9789026339592,
@@ -315,6 +332,7 @@
         }
     ],
     "uitgave": "2018-11",
+    "bindwijze": "E-book",
     "paginas": 256,
     "taal": "Nederlands",
     "ean": 9789024582747,
@@ -332,6 +350,7 @@
         }
     ],
     "uitgave": "2019-5",
+    "bindwijze": "E-book",
     "paginas": 352,
     "taal": "Nederlands",
     "ean": 9789026348198,
@@ -347,6 +366,7 @@
         }
     ],
     "uitgave": "2004-9",
+    "bindwijze": "E-book",
     "paginas": 279,
     "taal": "Duits",
     "ean": 9783937715179,
@@ -362,6 +382,7 @@
         }
     ],
     "uitgave": "2019-1",
+    "bindwijze": "E-book",
     "paginas": 352,
     "taal": "Engels",
     "ean": 9781509853311,
@@ -378,6 +399,7 @@
         }
     ],
     "uitgave": "2019-9",
+    "bindwijze": "E-book",
     "paginas": 256,
     "taal": "Nederlands",
     "ean": 9789057599804,
@@ -393,6 +415,7 @@
          }
      ],
      "uitgave": "2017-8",
+     "bindwijze": "E-book",
      "paginas": 608,
      "taal": "Nederlands",
      "ean": 9789044539455,

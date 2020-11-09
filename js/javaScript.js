@@ -76,15 +76,25 @@ const boeken = {
      compleetTitel += boek.voorTitel + " ";
     }
     compleetTitel += boek.titel;
+
+
     let compleetAfbeelding ="";
     compleetAfbeelding += boek.cover;
 
+    let bindWijze = "";
+    bindWijze += boek.bindwijze;
     //boek houd al de waarde vast van resultaat__Leesbaar[i]
     //alles binnen de variabele 'html', komt terecht in document.getElementById('boeken');
-    html += `<section class="boek">`;
-      html += `<img class="boek__cover" src="${compleetAfbeelding}" alt="${compleetTitel}">`;
-      html += `<article>${compleetTitel} </article>`;   
-    html += `</section>`;
+   
+   
+   
+       html += `<section class="boek">`;
+         html += `<img class="boek__cover" src="${compleetAfbeelding}" alt="${compleetTitel}">`;
+         html += `<article class="boek__cover boek__boekInformatieTotaalOrder1">${compleetTitel}</article>`;   
+         html += `<article class="boek__cover boek__boekInformatieTotaalOrder1">${bindWijze}</article>`;   
+         html += `<article class="boek__cover boek__boekInformatieTotaalOrder1">${bindWijze}</article>`;   
+
+       html += `</section>`;
    });
    uitvoer.innerHTML = html;
 

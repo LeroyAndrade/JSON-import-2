@@ -2,7 +2,32 @@ body {
  background-color: green;
  font-family: Arial, Helvetica, sans-serif;
 }
+
+.boek{ 
+ display: flex;
+ flex-grow: 1;
+ flex-flow: wrap column;
+ border: 1px solid red;
+ width: 500px;
+ height: 200px;
  
+} .boek__cover{
+ /*
+ padding-right: 3rem;
+ border: 1px solid;
+ */
+ max-width: 300px;
+ order: 0;
+}
+.boek__boekInformatieTotaal{
+ /*
+ padding-right: 3rem;
+ border: 1px solid;
+ */
+ max-width: 300px;
+ order: 1;
+}
+/*
 .boek{ 
  padding: 1em;
  clear: left;
@@ -10,5 +35,5 @@ body {
  float:left;
  padding-right: 3rem;
  max-width: 300px;
- object-fit: contain;
-}
+ obje
+ */
