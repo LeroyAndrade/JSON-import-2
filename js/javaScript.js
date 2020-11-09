@@ -90,11 +90,13 @@ const boeken = {
     //alles binnen de variabele 'html', komt terecht in document.getElementById('boeken');
       
        html += `<section class="boek">`;
-         html += `<img class="boek__cover" src="${compleetAfbeelding}" alt="       ${compleetTitel}">`;
-         html += `<article class="boek__cover boek__boekInformatieTotaalOrder1">   ${compleetTitel}</article>`;   
-         html += `<article   class="boek__ean">                                EAN ${boek.ean}  </article>`;
-         html += `<article   class="boek__taal">                                   ${boek.taal}  </article>`;
-         html += `<article class="boek__cover boek__boekInformatieTotaalOrder1">   ${bindWijze}</article>`;   
+         html += `<img      class="boek__cover" src="${compleetAfbeelding}" alt="      ${compleetTitel}">`;
+         html += `<article  class="boek__cover boek__boekInformatieTotaalOrder1"> <b>  ${compleetTitel}</b>     </article>`;   
+         html += `<span     class="boek__uitgave">                                     ${boek.uitgave}          </span>`;
+         html += `<span     class="boek__ean">                                     EAN ${boek.ean}              </span>`;
+         html += `<span     class="boek__paginas">                                     ${boek.paginas} blz.     </span>`;
+         html += `<span     class="boek__taal">                                        ${boek.taal}             </span>`;
+         html += `<span     class="boek__cover boek__boekInformatieTotaalOrder1">      ${bindWijze}             </span>`;   
        html += `</section>`;
    });
    uitvoer.innerHTML = html;
