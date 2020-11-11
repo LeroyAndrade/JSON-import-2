@@ -26,12 +26,15 @@ if (xhr.readyState === 200 || xhr.readyState === 4){
  //ga naar function wanneer je één van de twee responses terug krijgt
 }
 */
+
+/*
 xhr.onreadystatechange = () =>{
  if (xhr.readyState){
   console.log("Status: " + xhr.status + ' status: ' +xhr.readyState);
  }
  else jsonRequestNok();
 }
+*/
 
 xhr.onerror = jsonRequestNok; 
   function jsonRequestNok(){
@@ -39,7 +42,7 @@ xhr.onerror = jsonRequestNok;
   }
 
 
-
+//onload is dat de request goedgekeurd is
 xhr.onload = jsonRequestOk;
 
 //alle code die uitgevoerd moet worden wanneer XHRequest positief is.
@@ -102,7 +105,7 @@ const boeken = {
       
        html += `<section    class="boek">                                                                                                                              `;
          html += `<img      class="boek__cover" src="${compleetAfbeelding}" alt="                             ${ compleetTitel                   }                                 ">`;
-         html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">   <b>           ${ compleetTitel                   }                    </b> </article>`;   
+         html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">   <b>           ${ compleetTitel                   }                    </b>`;   
          html += `<p        class="boek__auteurs">                                              <b>           ${ auteurs                         }                    </b>       </p>`;   
          html += `<span     class="boek__uitgave">                                                            ${ this.datumOmzetten(boek.uitgave)}                            </span>`;
          html += `<span     class="boek__ean">                                                   EAN:         ${ boek.ean                        }                            </span>`;
@@ -110,7 +113,8 @@ const boeken = {
          html += `<span     class="boek__paginas">                                                            ${ boek.paginas                    }                    blz.    </span>`;
          html += `<span     class="boek__taal">                                                               ${ boek.taal                       }                            </span>`;
          html += `<span     class="boek__prijs">                                                              ${ bedrag                          }                            </span>`;
-       html +=                                                                                                                                           `</section>`;
+         html += `</article>`;
+         html +=    `</section>`;
    });
    uitvoer.innerHTML = html;
 
