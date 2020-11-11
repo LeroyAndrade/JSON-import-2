@@ -56,7 +56,9 @@ xhr.onload = jsonRequestOk;
 
     boeken.data = resultaat;
     //voer uit(object.functie)
+    boeken.filteren(resultaat);
     boeken.uitvoeren();
+   
     }
 
 
@@ -67,6 +69,18 @@ xhr.onload = jsonRequestOk;
 //end XHR
 
 const boeken = {
+// filter op taal van het boek 
+
+
+ taalFilter: 'Nederlands',
+
+   filteren(gegevens){
+    this.data = gegevens.filter( ( boekFilter ) => {return boekFilter.taal == this.taalFilter} ) ;
+   
+
+   },
+
+
   uitvoeren() {
 
    let html = "";
@@ -102,11 +116,11 @@ const boeken = {
     bedrag += boek.prijs.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'});
     //boek houd al de waarde vast van resultaat__Leesbaar[i]
     //alles binnen de variabele 'html', komt terecht in document.getElementById('boeken');
-      
+      //https://www.codegrepper.com/code-examples/javascript/how+to+filter+object+in+javascript
        html += `<section    class="boek">                                                                                                                                     `;
          html += `<img      class="boek__cover" src="${compleetAfbeelding}" alt="                                   ${ compleetTitel                    }                   ">`;
-             html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">   <b>             ${ compleetTitel                    }                 </b>`;   
-               html += `<p        class="boek__auteurs">                                              <b>           ${ auteurs                          }      </b>       </p>`;   
+             html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">      <b>             ${ compleetTitel                 }                 </b>`;   
+               html += `<p        class="boek__auteurs">                                               <b>           ${ auteurs                         }      </b>       </p>`;   
                html += `<span     class="boek__uitgave">                                                            ${ this.datumOmzetten(boek.uitgave) }              </span>`;
                html += `<span     class="boek__ean">                                                   EAN:         ${ boek.ean                         }              </span>`;
                html += `<span     class="boek__cover boek__boekInformatieTotaalOrder1">                Bindwijze:   ${ boek.bindwijze                   }              </span>`; 
