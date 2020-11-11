@@ -103,18 +103,20 @@ const boeken = {
     //boek houd al de waarde vast van resultaat__Leesbaar[i]
     //alles binnen de variabele 'html', komt terecht in document.getElementById('boeken');
       
-       html += `<section    class="boek">                                                                                                                              `;
-         html += `<img      class="boek__cover" src="${compleetAfbeelding}" alt="                             ${ compleetTitel                   }                                 ">`;
-         html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">   <b>           ${ compleetTitel                   }                    </b>`;   
-         html += `<p        class="boek__auteurs">                                              <b>           ${ auteurs                         }                    </b>       </p>`;   
-         html += `<span     class="boek__uitgave">                                                            ${ this.datumOmzetten(boek.uitgave)}                            </span>`;
-         html += `<span     class="boek__ean">                                                   EAN:         ${ boek.ean                        }                            </span>`;
-         html += `<span     class="boek__cover boek__boekInformatieTotaalOrder1">                Bindwijze:   ${ boek.bindwijze                  }                            </span>`; 
-         html += `<span     class="boek__paginas">                                                            ${ boek.paginas                    }                    blz.    </span>`;
-         html += `<span     class="boek__taal">                                                               ${ boek.taal                       }                            </span>`;
-         html += `<span     class="boek__prijs">                                                              ${ bedrag                          }                            </span>`;
-         html += `</article>`;
-         html +=    `</section>`;
+       html += `<section    class="boek">                                                                                                                                     `;
+         html += `<img      class="boek__cover" src="${compleetAfbeelding}" alt="                                   ${ compleetTitel                    }                   ">`;
+             html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">   <b>             ${ compleetTitel                    }                 </b>`;   
+               html += `<p        class="boek__auteurs">                                              <b>           ${ auteurs                          }      </b>       </p>`;   
+               html += `<span     class="boek__uitgave">                                                            ${ this.datumOmzetten(boek.uitgave) }              </span>`;
+               html += `<span     class="boek__ean">                                                   EAN:         ${ boek.ean                         }              </span>`;
+               html += `<span     class="boek__cover boek__boekInformatieTotaalOrder1">                Bindwijze:   ${ boek.bindwijze                   }              </span>`; 
+               html += `<span     class="boek__paginas">                                                            ${ boek.paginas                     }      blz.    </span>`;
+               html += `<span     class="boek__taal">                                                               ${ boek.taal                        }              </span>`;
+             html +=                                                                                                                                               `</article>`;         
+            //Alles na deze regel komt aan de rechter zijde van boek.titel
+         html += `<span     class="boek__prijs">                                                                    ${ bedrag                           }    
+                  <input type="button" class="buttonBetaal" value="Voeg toe" onclick="msg()">                                                                          </span>`;
+       html += `</section>`;
    });
    uitvoer.innerHTML = html;
 

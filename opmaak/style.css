@@ -2,7 +2,7 @@
  margin: 0;
 }
 /*
-@media
+@media voor kleine beeldscherm
 flex-flow: row wrap, small
 else
  current*/
@@ -13,14 +13,16 @@ body {
 
 .boek{ 
  display: flex;
- flex-flow: column wrap;
+ flex-direction: row;
  width: 300px;
  height: 380px;
+ height: 380px;
  padding: 3em;
- border: 1px solid;
-} .boek__cover{
- padding-right: 3rem;
- width: 150px;
+} 
+
+.boek__cover{
+ margin-right: 3rem;
+ min-width: 300px;
 }
 
 .boek__kopje{
@@ -42,3 +44,10 @@ body {
  max-width: 300px;
 }
 
+.buttonBetaal{
+ width: 75px;
+ height: 75px;
+ border-radius: 15px;
+ margin-left: 10px;
+ margin-top: 10px;
+}
