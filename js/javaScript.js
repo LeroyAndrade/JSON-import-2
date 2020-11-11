@@ -100,19 +100,45 @@ const boeken = {
     //boek houd al de waarde vast van resultaat__Leesbaar[i]
     //alles binnen de variabele 'html', komt terecht in document.getElementById('boeken');
       
-       html += `<section    class="boek">                                                                                                           `;
-         html += `<img      class="boek__cover" src="${compleetAfbeelding}" alt="                             ${ compleetTitel  }                 ">`;
-         html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">   <b>           ${ compleetTitel  }    </b> </article>`;   
-         html += `<p        class="boek__auteurs">                                              <b>           ${ auteurs        }    </b>       </p>`;   
-         html += `<span     class="boek__uitgave">                                                            ${ boek.uitgave   }            </span>`;
-         html += `<span     class="boek__ean">                                                   EAN:         ${ boek.ean       }            </span>`;
-         html += `<span     class="boek__cover boek__boekInformatieTotaalOrder1">                Bindwijze:   ${ boek.bindwijze }            </span>`; 
-         html += `<span     class="boek__paginas">                                                            ${ boek.paginas   }    blz.    </span>`;
-         html += `<span     class="boek__taal">                                                               ${ boek.taal      }            </span>`;
-         html += `<span     class="boek__prijs">                                                              ${ bedrag         }            </span>`;
-       html +=                                                                                                                           `</section>`;
+       html += `<section    class="boek">                                                                                                                              `;
+         html += `<img      class="boek__cover" src="${compleetAfbeelding}" alt="                             ${ compleetTitel                   }                                 ">`;
+         html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">   <b>           ${ compleetTitel                   }                    </b> </article>`;   
+         html += `<p        class="boek__auteurs">                                              <b>           ${ auteurs                         }                    </b>       </p>`;   
+         html += `<span     class="boek__uitgave">                                                            ${ this.datumOmzetten(boek.uitgave)}                            </span>`;
+         html += `<span     class="boek__ean">                                                   EAN:         ${ boek.ean                        }                            </span>`;
+         html += `<span     class="boek__cover boek__boekInformatieTotaalOrder1">                Bindwijze:   ${ boek.bindwijze                  }                            </span>`; 
+         html += `<span     class="boek__paginas">                                                            ${ boek.paginas                    }                    blz.    </span>`;
+         html += `<span     class="boek__taal">                                                               ${ boek.taal                       }                            </span>`;
+         html += `<span     class="boek__prijs">                                                              ${ bedrag                          }                            </span>`;
+       html +=                                                                                                                                           `</section>`;
    });
    uitvoer.innerHTML = html;
 
-  }
+  },
+  datumOmzetten(datumString) {
+   let datum = new Date(datumString);
+   let jaar = datum.getFullYear();
+   let maand = this.geefMaandNaam(datum.getMonth());
+   return `${maand} ${jaar}`;
+  },
+  geefMaandNaam(m) {
+   let maand = "";
+
+     switch (m){
+      case 0 :     maand = 'januari';      break;
+      case 2 :     maand = 'februari';     break;
+      case 3 :     maand = 'maart';        break;
+      case 4 :     maand = 'april';        break;
+      case 5 :     maand = 'mei';          break;
+      case 6 :     maand = 'juni';         break;
+      case 7 :     maand = 'juli';         break;
+      case 8 :     maand = 'augustus';     break;
+      case 9 :     maand = 'september';    break;
+      case 10:     maand = 'oktober';      break;
+      case 11:     maand = 'november';     break;
+      case 12:     maand = 'december';     break;
+      default:     maand =  m;
+     }
+     return maand;
+   }
 }
