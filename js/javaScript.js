@@ -144,9 +144,9 @@ const boeken = {
     //alles binnen de variabele 'html', komt terecht in document.getElementById('boeken');
       //https://www.codegrepper.com/code-examples/javascript/how+to+filter+object+in+javascript
        html += `<section    class="boek">                                                                                                                                     `;
-         html += `<img      class="boek__cover" src="${compleetAfbeelding}" alt="                                   ${ compleetTitel                    }                   ">`;
-             html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">      <b>          ${ compleetTitel                 }                    </b>`;   
-               html += `<p        class="boek__auteurs">                                               <b>           ${ auteurs                         }      </b>       </p>`;   
+         html += `<img      class="boek__cover" src="${compleetAfbeelding}" alt="">                                 ${ compleetTitel                    }                   ">`;
+             html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">      <b>          ${ compleetTitel                    }                    </b>`;   
+               html += `<p        class="boek__auteurs">                                               <b>          ${ auteurs                          }      </b>       </p>`;   
                html += `<span     class="boek__uitgave">                                                            ${ this.datumOmzetten(boek.uitgave) }              </span>`;
                html += `<span     class="boek__ean">                                                   EAN:         ${ boek.ean                         }              </span>`;
                html += `<span     class="boek__cover boek__boekInformatieTotaalOrder1">                Bindwijze:   ${ boek.bindwijze                   }              </span>`; 

@@ -13,7 +13,6 @@ body {
 
 .boek{ 
  display: flex;
- 
  align-items: flex-start;
  width: 300px;
  height: 380px;
@@ -70,4 +69,14 @@ body {
 .besturing__sorteren{
  /*float right alternatief nadat alle opdrachten zijn uitgevoerd*/
  text-align: right;
+}
+
+@media (min-width: 1250px){
+ #boeken{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+ }
+ .boek:nth-child(4n+2){
+  background-color: blue;
+ }
 }
