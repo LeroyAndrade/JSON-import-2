@@ -25,8 +25,7 @@ body {
  width: 5px;
  left: 18%; 
  top: 0px;
-
-color: red;
+ color: red;
 
 
 }
@@ -98,9 +97,30 @@ color: red;
  text-align: right;
 }
 
-.boek__bestel-knop{
-
+/*Menu*/
+.bestelFormulier{
+ background-color: blue;
+ position: absolute;
+ width: 90vw;
+ min-height: 90vh;
+ top: 1em;
+ border-radius: 30px;
+ border: solid #F1F1F1 3px;
+ padding: 2em;
+ box-sizing: border-box;
+ margin: 2vw 10vw;
+ transform: translateX(100vw);
+ transition: transform, 1s ease-in-out;
 }
+
+/*Check*/
+#haalFormulierOp{
+ display: none;
+}
+#haalFormulierOp:checked ~ .bestelFormulier{
+ transform: translateX(0vw);
+}
+
 
 @media (min-width: 1250px){
  #boeken{
