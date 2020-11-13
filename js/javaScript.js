@@ -73,6 +73,7 @@ const boeken = {
 
 
  taalFilter: ['Nederlands', 'Engels', 'Duits'],
+ eigenschapSorteren: 'titel', 
  //taalFilter: ['Duits', 'Nederlands'],
 
    filteren(gegevens){
@@ -86,9 +87,15 @@ const boeken = {
     return boolean;
    } ) 
   },
-  sorteren() {
-   this.data.sort( (a,b) => ( a.titel.toUpperCase() > b.titel.toUpperCase() ? 1 : -1));
 
+  //sorteer functie
+  sorteren() {
+  // 
+        if (this.eigenschapSorteren == 'titel'  ) { this.data.sort( (a,b) => ( a.titel.toUpperCase()   > b.titel.toUpperCase()  ? 1 : -1));}
+   else if (this.eigenschapSorteren == 'paginas') { this.data.sort( (a,b) => ( a.paginas               > b.paginas              ? 1 : -1));}
+   else if (this.eigenschapSorteren == 'uitgave') { this.data.sort( (a,b) => ( a.uitgave               > b.uitgave              ? 1 : -1));}
+   else if (this.eigenschapSorteren == 'prijs'  ) { this.data.sort( (a,b) => ( a.prijs                 > b.prijs                ? 1 : -1));}
+   else if (this.eigenschapSorteren == 'auteur' ) { this.data.sort( (a,b) => ( a.auteur[0].achternaam  > b.auteur[0].achternaam ? 1 : -1));}
   },
 
   uitvoeren() {
