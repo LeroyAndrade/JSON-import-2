@@ -1,5 +1,6 @@
 const uitvoer = document.getElementById('boeken');
 const xhr = new XMLHttpRequest;
+const taalKeuze = document.querySelectorAll('.besturing__cb-taal');
 
 
 //https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open
@@ -49,7 +50,7 @@ xhr.onload = jsonRequestOk;
   function jsonRequestOk(){
     let resultaat = JSON.parse(this.responseText);
   //  console.log(typeof(resultaat)); -> object
-    let resultaat__Leesbaar = resultaat;
+    var resultaat__Leesbaar = resultaat;
      console.log(resultaat__Leesbaar);
 
    //object(boeken).data  zal alle data opslaan in het object, mag net zo goed boeken.datal zijn
@@ -67,17 +68,17 @@ xhr.onload = jsonRequestOk;
   xhr.send();
 
 //end XHR
-
 const boeken = {
 // filter op taal van het boek 
 
 
- taalFilter: ['Nederlands', 'Engels', 'Duits'],
+ //taalFilter: ['Nederlands', 'Engels', 'Duits'],
+ taalFilter: ['Duits', 'Nederlands'],
 
    filteren(gegevens){
   //  this.data = gegevens.filter( ( boekFilter ) => {return boekFilter.taal == this.taalFilter} ) ;
    this.data = gegevens.filter( ( boekFilter ) => {
-    let boolean = true;
+    let boolean = false;
      this.taalFilter.forEach( ( taal ) =>{
        if( boekFilter.taal == taal){ boolean = true;}
      } )
@@ -125,7 +126,7 @@ const boeken = {
       //https://www.codegrepper.com/code-examples/javascript/how+to+filter+object+in+javascript
        html += `<section    class="boek">                                                                                                                                     `;
          html += `<img      class="boek__cover" src="${compleetAfbeelding}" alt="                                   ${ compleetTitel                    }                   ">`;
-             html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">      <b>             ${ compleetTitel                 }                 </b>`;   
+             html += `<article  class="boek__cover boek__kopje boek__boekInformatieTotaalOrder1">      <b>          ${ compleetTitel                 }                    </b>`;   
                html += `<p        class="boek__auteurs">                                               <b>           ${ auteurs                         }      </b>       </p>`;   
                html += `<span     class="boek__uitgave">                                                            ${ this.datumOmzetten(boek.uitgave) }              </span>`;
                html += `<span     class="boek__ean">                                                   EAN:         ${ boek.ean                         }              </span>`;
@@ -168,3 +169,21 @@ const boeken = {
      return maand;
    }
 }
+//checkbox van HTML - taal keuze
+//console.log taalKeuze weergeeft een NodeList, hier kun je forEach, door heen loopen
+const pasFilterAan = () => {
+ let gecheckteTaalKeuze = [];
+
+ taalKeuze.forEach( cb => {
+  if(cb.checked) gecheckteTaalKeuze.push(cb.value);
+ });
+boeken.taalFilter = gecheckteTaalKeuze;
+
+ boeken.filteren(JSON.parse(xhr.responseText));
+ boeken.uitvoeren();
+
+
+ // taalFilter: ['Nederlands', 'Engels', 'Duits']
+}
+
+taalKeuze.forEach ( cb => cb.addEventListener('change', pasFilterAan) );
