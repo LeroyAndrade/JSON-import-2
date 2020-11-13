@@ -72,8 +72,8 @@ const boeken = {
 // filter op taal van het boek 
 
 
- //taalFilter: ['Nederlands', 'Engels', 'Duits'],
- taalFilter: ['Duits', 'Nederlands'],
+ taalFilter: ['Nederlands', 'Engels', 'Duits'],
+ //taalFilter: ['Duits', 'Nederlands'],
 
    filteren(gegevens){
   //  this.data = gegevens.filter( ( boekFilter ) => {return boekFilter.taal == this.taalFilter} ) ;
@@ -86,10 +86,13 @@ const boeken = {
     return boolean;
    } ) 
   },
+  sorteren() {
+   this.data.sort( (a,b) => ( a.titel.toUpperCase() > b.titel.toUpperCase() ? 1 : -1));
 
+  },
 
   uitvoeren() {
-
+   this.sorteren();
    let html = "";
    //this is het object boeken
    this.data.forEach( boek => {
