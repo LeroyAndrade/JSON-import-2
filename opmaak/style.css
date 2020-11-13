@@ -65,10 +65,9 @@ body {
  padding: 1em;
 }
 /*Index HTML filter*/
-.besturing__select--label{
- text-align: right;
-}
 
-.besturing__select--label{
- /*float right alternatief*/
+
+.besturing__sorteren{
+ /*float right alternatief nadat alle opdrachten zijn uitgevoerd*/
+ text-align: right;
 }

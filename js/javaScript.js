@@ -80,6 +80,10 @@ const boeken = {
  eigenschapSorteren: 'titel', 
  //taalFilter: ['Duits', 'Nederlands'],
 
+ //sorteer eigenschap
+ oplopend: 1,
+
+
    filteren(gegevens){
   //  this.data = gegevens.filter( ( boekFilter ) => {return boekFilter.taal == this.taalFilter} ) ;
    this.data = gegevens.filter( ( boekFilter ) => {
@@ -95,11 +99,12 @@ const boeken = {
   //sorteer functie
   sorteren() {
   // 
-        if (this.eigenschapSorteren == 'titel'  ) { this.data.sort( (a,b) => ( a.titel.toUpperCase()   > b.titel.toUpperCase()  ? 1 : -1));}
-   else if (this.eigenschapSorteren == 'paginas') { this.data.sort( (a,b) => ( a.paginas               > b.paginas              ? 1 : -1));}
-   else if (this.eigenschapSorteren == 'uitgave') { this.data.sort( (a,b) => ( a.uitgave               > b.uitgave              ? 1 : -1));}
-   else if (this.eigenschapSorteren == 'prijs'  ) { this.data.sort( (a,b) => ( a.prijs                 > b.prijs                ? 1 : -1));}
-   else if (this.eigenschapSorteren == 'auteur' ) { this.data.sort( (a,b) => ( a.auteur[0].achternaam  > b.auteur[0].achternaam ? 1 : -1));}
+//        if (this.eigenschapSorteren == 'titel'  ) { this.data.sort( (a,b) => ( a.titel.toUpperCase()   > b.titel.toUpperCase()  ? 1 : -1));}
+        if (this.eigenschapSorteren == 'titel'  ) { this.data.sort( (a,b) => ( a.titel.toUpperCase()   > b.titel.toUpperCase()  ? this.oplopend : -1*this.oplopend));}
+   else if (this.eigenschapSorteren == 'paginas') { this.data.sort( (a,b) => ( a.paginas               > b.paginas              ? this.oplopend : -1*this.oplopend));}
+   else if (this.eigenschapSorteren == 'uitgave') { this.data.sort( (a,b) => ( a.uitgave               > b.uitgave              ? this.oplopend : -1*this.oplopend));}
+   else if (this.eigenschapSorteren == 'prijs'  ) { this.data.sort( (a,b) => ( a.prijs                 > b.prijs                ? this.oplopend : -1*this.oplopend));}
+   else if (this.eigenschapSorteren == 'auteur' ) { this.data.sort( (a,b) => ( a.auteur[0].achternaam  > b.auteur[0].achternaam ? this.oplopend : -1*this.oplopend));}
   },
 
   uitvoeren() {
@@ -206,3 +211,7 @@ const pasSortEigAan = () => {
 
 taalKeuze.forEach ( cb => cb.addEventListener('change', pasFilterAan) );
 selectSort.addEventListener('change', pasSortEigAan);
+document.querySelectorAll('.besturing__radioButton').forEach( rb => rb.addEventListener('change', () =>{
+ boeken.oplopend = rb.value;
+ boeken.uitvoeren();
+}));
