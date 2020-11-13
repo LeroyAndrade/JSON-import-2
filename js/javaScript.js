@@ -83,7 +83,9 @@ xhr.onload = jsonRequestOk;
     const ww =  {
      bestelling: []
     }
-
+    //JSON string -> JS object
+     ww.bestelling = JSON.parse(localStorage.winkelWagenBestelling);
+     aantalInWinkelwagen.innerHTML = ww.bestelling.length;
     /*object boeken
       properties: taalfilter, data
       methods:    filteren, sorteren, uitvoeren
@@ -186,6 +188,10 @@ const boeken = {
       let gekliktBoek = this.data.filter(b => b.ean == boekID);
       ww.bestelling.push(gekliktBoek[0]);
       aantalInWinkelwagen.innerHTML = ww.bestelling.length;
+     
+      //lokaal opslag
+      localStorage.winkelWagenBestelling = JSON.stringify(ww.bestelling);
+     
      })
    });
 
