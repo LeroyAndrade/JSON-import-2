@@ -1,7 +1,11 @@
 const uitvoer = document.getElementById('boeken');
 const xhr = new XMLHttpRequest;
+
+//checkbox taal filter
 const taalKeuze = document.querySelectorAll('.besturing__cb-taal');
 
+//selecteer keuze eigenschappen boeken
+const selectSort = document.querySelector('.besturing__select');
 
 //https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open
 
@@ -191,9 +195,14 @@ boeken.taalFilter = gecheckteTaalKeuze;
 
  boeken.filteren(JSON.parse(xhr.responseText));
  boeken.uitvoeren();
-
-
  // taalFilter: ['Nederlands', 'Engels', 'Duits']
 }
 
+const pasSortEigAan = () => {
+ boeken.eigenschapSorteren = selectSort.value;
+ console.log('sorten op' + boeken.eigenschapSorteren)
+ boeken.uitvoeren();
+}
+
 taalKeuze.forEach ( cb => cb.addEventListener('change', pasFilterAan) );
+selectSort.addEventListener('change', pasSortEigAan);

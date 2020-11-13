@@ -15,17 +15,32 @@
    <h1>Ons assortiment boeken</h1>
 
    <div class="besturing">
-     <label class="besturing__cb-label">
-      <input type="checkbox" class="besturing__cb-taal" value="Nederlands" checked>Nederlands
-     </label>
+    <section class="xyz">
+      <label class="besturing__cb-label">
+       <input type="checkbox" class="besturing__cb-taal" value="Nederlands" checked>Nederlands
+      </label>
 
-     <label class="besturing__cb-label">
-      <input type="checkbox" class="besturing__cb-taal" value="Engels" checked>Engels
-     </label>
+      <label class="besturing__cb-label">
+       <input type="checkbox" class="besturing__cb-taal" value="Engels" checked>Engels
+      </label>
 
-     <label class="besturing__cb-label">
-      <input type="checkbox" class="besturing__cb-taal" value="Duits" checked>Duits
+      <label class="besturing__cb-label">
+       <input type="checkbox" class="besturing__cb-taal" value="Duits" checked>Duits
+      </label>
+    </section>
+
+    <!--sorteren op boek eigenschappen-->
+    <section class="xyz">
+     <label for="" class="besturing__select--label"><small>Sorteren op:</small>
+      <select name="besturing__select" class="besturing__select">
+       <option value="titel">   Titel              </option>
+       <option value="paginas"> Aantal bladzijdes  </option>
+       <option value="uitgave"> Publicatie datum   </option>
+       <option value="prijs">   prijs              </option>
+       <option value="auteur">  auteur             </option>
+      </select> 
      </label>
+    </section>
    </div>
 
      <article id="boeken"> </article>

@@ -13,7 +13,8 @@ body {
 
 .boek{ 
  display: flex;
- flex-direction: row;
+ 
+ align-items: flex-start;
  width: 300px;
  height: 380px;
  height: 380px;
@@ -50,4 +51,24 @@ body {
  border-radius: 15px;
  margin-left: 10px;
  margin-top: 10px;
+}
+
+.besturing{
+ display: flex; 
+ flex-wrap: wrap;
+ background-color: lightgreen;
+}
+
+.besturing > .xyz{
+
+ background-color: blue;
+ padding: 1em;
+}
+/*Index HTML filter*/
+.besturing__select--label{
+ text-align: right;
+}
+
+.besturing__select--label{
+ /*float right alternatief*/
 }
