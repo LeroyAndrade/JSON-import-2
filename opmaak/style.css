@@ -71,6 +71,8 @@ color: red;
  margin-left: 10px;
  margin-top: 10px;
  background-color: transparent;
+ letter-spacing: .2em;
+ font-weight: 900;
 }
 
 .buttonBetaal:hover{

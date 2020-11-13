@@ -7,6 +7,8 @@ const taalKeuze = document.querySelectorAll('.besturing__cb-taal');
 //selecteer keuze eigenschappen boeken
 const selectSort = document.querySelector('.besturing__select');
 
+
+const aantalInWinkelwagen = document.querySelector('.ww__aantallen');
 //https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open
 
   /*
@@ -72,6 +74,20 @@ xhr.onload = jsonRequestOk;
   xhr.send();
 
 //end XHR
+
+
+    /*object winkelwagen -> ww
+      properties: 
+      methods:    e.preventDefault
+    */
+    const ww =  {
+     bestelling: []
+    }
+
+    /*object boeken
+      properties: taalfilter, data
+      methods:    filteren, sorteren, uitvoeren
+    */
 const boeken = {
 // filter op taal van het boek 
 
@@ -155,11 +171,23 @@ const boeken = {
              html +=                                                                                                                                               `</article>`;         
             //Alles na deze regel komt aan de rechter zijde van boek.titel
          html += `<span     class="boek__prijs">                                                                    ${ bedrag                           }    
-                  <input type="button" class="buttonBetaal boek__bestel-knop" value="Voeg toe">                                                                       </span>`;
+                  <input type="button" class="buttonBetaal boek__bestel-knop" value="Voeg toe" data-role="${boek.ean}">                                                </span>`;
                
        html += `</section>`;
    });
    uitvoer.innerHTML = html;
+   //de gemaakte knoppen, krijgt een eventListener
+   document.querySelectorAll('.boek__bestel-knop').forEach( knop => {
+     knop.addEventListener('click', e => { 
+      e.preventDefault();
+      
+      //hier lees je de value uit van de HTML data-role
+      let boekID = e.target.getAttribute('data-role');
+      let gekliktBoek = this.data.filter(b => b.ean == boekID);
+      ww.bestelling.push(gekliktBoek[0]);
+      aantalInWinkelwagen.innerHTML = ww.bestelling.length;
+     })
+   });
 
   },
   datumOmzetten(datumString) {
