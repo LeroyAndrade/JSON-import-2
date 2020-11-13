@@ -78,7 +78,7 @@ xhr.onload = jsonRequestOk;
 
     /*object winkelwagen -> ww
       properties: 
-      methods:    e.preventDefault
+      methods:    e.preventDefault, boekToevoegen, dataOphalen, uitvoeren
     */
     const ww =  {
      bestelling: [],
@@ -86,17 +86,43 @@ xhr.onload = jsonRequestOk;
      boekToevoegen(obj) { 
       this.bestelling.push(obj);
       aantalInWinkelwagen.innerHTML = this.bestelling.length;
+      localStorage.winkelWagenBestelling = JSON.stringify(this.bestelling);
      },
-     //opslaan in lokaal opslag
-     dataOpslaan(){
-     //lokaal opslag
-     localStorage.winkelWagenBestelling = JSON.stringify(this.bestelling);
-     
-     },
+ 
      dataOphalen() {
       this.bestelling = JSON.parse(localStorage.winkelWagenBestelling);
-      aantalInWinkelwagen.innerHTML = ww.bestelling.length;
-     }
+       this.uitvoeren();
+     },
+      uitvoeren(){
+       let html = '<table>';
+       let totaal = 0;
+       //wanneer een voortitel beschikbaar is, dan moet deze vóór de titel worden geplaatst
+       this.bestelling.forEach( boek => {
+      let compleetTitel = "";
+      if ( boek.voorTitel ){
+       compleetTitel += boek.voorTitel + " ";
+      }
+      compleetTitel += boek.titel;
+
+
+             html += '<tr>';
+             html += `<td><img src="${boek.cover}" alt="${compleetTitel}" class="bestelFormulier__cover"></td>`;
+             html += `<td>${compleetTitel}</td>`;
+             html += `<td>${boek.prijs.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}</td>`;
+             html += '</tr>';
+             html += '';
+             totaal += boek.prijs;
+           });
+           
+           html += `<tr><td colspan="2"></td>
+            <td>${totaal.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}</td>
+            </tr>'`;            ;
+           html += '<tr><td>Totaal</td> </tr>';
+ 
+        html += '</table>';
+        document.getElementById("uitoer").innerHTML = html;
+        aantalInWinkelwagen.innerHTML = ww.bestelling.length;
+      }
     }
     //data Lokaal opslag 
 

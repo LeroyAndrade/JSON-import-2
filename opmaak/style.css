@@ -9,6 +9,8 @@ else
 
 body {
  font-family: Arial, Helvetica, sans-serif;
+ /*Verwijder extra marges van text*/
+ overflow-x: hidden;
 }
 
 .ww{
@@ -17,6 +19,7 @@ body {
  width: 5px;
  right: 8%; 
  top: 7px;
+ cursor: cell;
 }
 
 .ww__aantallen{
@@ -121,6 +124,10 @@ body {
  transform: translateX(0vw);
 }
 
+.bestelFormulier__cover{
+width: 80%;
+height: 50%;
+}
 
 @media (min-width: 1250px){
  #boeken{
