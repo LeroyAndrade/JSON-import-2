@@ -72,13 +72,19 @@ const boeken = {
 // filter op taal van het boek 
 
 
- taalFilter: 'Nederlands',
+ taalFilter: ['Nederlands', 'Engels', 'Duits'],
 
    filteren(gegevens){
-    this.data = gegevens.filter( ( boekFilter ) => {return boekFilter.taal == this.taalFilter} ) ;
-   
-
-   },
+  //  this.data = gegevens.filter( ( boekFilter ) => {return boekFilter.taal == this.taalFilter} ) ;
+   this.data = gegevens.filter( ( boekFilter ) => {
+    let boolean = true;
+     this.taalFilter.forEach( ( taal ) =>{
+       if( boekFilter.taal == taal){ boolean = true;}
+     } )
+    //else
+    return boolean;
+   } ) 
+  },
 
 
   uitvoeren() {
