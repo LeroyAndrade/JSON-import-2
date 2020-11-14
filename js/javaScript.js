@@ -84,14 +84,24 @@ xhr.onload = jsonRequestOk;
      bestelling: [],
 
      boekToevoegen(obj) { 
-      this.bestelling.push(obj);
+//
+      let gevondenDuplicaat = this.bestelling.filter( b => b.ean == obj.ean);
+       if (gevondenDuplicaat.length == 0){
+       ww.bestelling.push(obj);
+      } 
       aantalInWinkelwagen.innerHTML = this.bestelling.length;
       localStorage.winkelWagenBestelling = JSON.stringify(this.bestelling);
+      this.uitvoeren();
      },
  
      dataOphalen() {
-      this.bestelling = JSON.parse(localStorage.winkelWagenBestelling);
-       this.uitvoeren();
+     
+       
+       if (localStorage.winkelWagenBestelling){
+        this.bestelling = JSON.parse(localStorage.winkelWagenBestelling);
+        this.uitvoeren();
+
+       }
      },
       uitvoeren(){
        let html = '<table>';
@@ -173,7 +183,10 @@ const boeken = {
    let html = "";
    //this is het object boeken
    this.data.forEach( boek => {
-
+  //elk boek een eigenschap   aantalBesteld, zodat het niet extra zal tonen, dit is de opzet
+   boek.besteldAantal =0;
+  //
+    
     //wanneer een voortitel beschikbaar is, dan moet deze vóór de titel worden geplaatst
     let compleetTitel = "";
     if ( boek.voorTitel ){
@@ -229,6 +242,9 @@ const boeken = {
       //hier lees je de value uit van de HTML data-role
       let boekID = e.target.getAttribute('data-role');
       let gekliktBoek = this.data.filter(b => b.ean == boekID);
+
+      //dit is code voor duplicaat item
+      gekliktBoek[0].besteldAantal ++;
       ww.boekToevoegen(gekliktBoek[0]);
       
      

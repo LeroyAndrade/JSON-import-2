@@ -134,7 +134,10 @@ height: 50%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
  }
+ /*
  .boek:nth-child(4n+2){
   background-color: blue;
  }
+ */
+
 }
