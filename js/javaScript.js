@@ -86,12 +86,19 @@ xhr.onload = jsonRequestOk;
      boekToevoegen(obj) { 
 //
       let gevondenDuplicaat = this.bestelling.filter( b => b.ean == obj.ean);
-       if (gevondenDuplicaat.length == 0){
-       ww.bestelling.push(obj);
-      } 
-      aantalInWinkelwagen.innerHTML = this.bestelling.length;
-      localStorage.winkelWagenBestelling = JSON.stringify(this.bestelling);
-      this.uitvoeren();
+       if  (gevondenDuplicaat.length == 0)
+           {
+            obj.besteldAantal ++;
+            ww.bestelling.push(obj);
+           } 
+       else 
+           {
+            gevondenDuplicaat[0].besteldAantal ++;
+           aantalInWinkelwagen.innerHTML = this.bestelling.length;
+           localStorage.winkelWagenBestelling = JSON.stringify(this.bestelling);
+           this.uitvoeren();
+           }
+
      },
  
      dataOphalen() {
@@ -102,26 +109,27 @@ xhr.onload = jsonRequestOk;
         this.uitvoeren();
 
        }
-     },
+     }, 
       uitvoeren(){
        let html = '<table>';
        let totaal = 0;
+       let totaalBesteld = 0;
        //wanneer een voortitel beschikbaar is, dan moet deze vóór de titel worden geplaatst
-       this.bestelling.forEach( boek => {
-      let compleetTitel = "";
-      if ( boek.voorTitel ){
-       compleetTitel += boek.voorTitel + " ";
-      }
-      compleetTitel += boek.titel;
-
-
+         this.bestelling.forEach( boek => {
+         let compleetTitel = "";
+         if ( boek.voorTitel ){
+          compleetTitel += boek.voorTitel + " ";
+         }
+         compleetTitel += boek.titel;
              html += '<tr>';
              html += `<td><img src="${boek.cover}" alt="${compleetTitel}" class="bestelFormulier__cover"></td>`;
              html += `<td>${compleetTitel}</td>`;
+             html += `<td> aantal&#40;len&#41;: ${boek.besteldAantal}</td>`;
              html += `<td>${boek.prijs.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}</td>`;
              html += '</tr>';
              html += '';
-             totaal += boek.prijs;
+             totaal += boek.prijs * boek.besteldAantal;
+             totaalBesteld += boek.besteldAantal;
            });
            
            html += `<tr><td colspan="2"></td>
@@ -131,7 +139,7 @@ xhr.onload = jsonRequestOk;
  
         html += '</table>';
         document.getElementById("uitoer").innerHTML = html;
-        aantalInWinkelwagen.innerHTML = ww.bestelling.length;
+        aantalInWinkelwagen.innerHTML = totaalBesteld;
       }
     }
     //data Lokaal opslag 
@@ -243,11 +251,9 @@ const boeken = {
       let boekID = e.target.getAttribute('data-role');
       let gekliktBoek = this.data.filter(b => b.ean == boekID);
 
-      //dit is code voor duplicaat item
-      gekliktBoek[0].besteldAantal ++;
+ //dit is code voor duplicaat item
+ //     gekliktBoek[0].besteldAantal ++;
       ww.boekToevoegen(gekliktBoek[0]);
-      
-     
     })
    });
 
